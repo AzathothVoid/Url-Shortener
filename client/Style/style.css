@@ -1,0 +1,167 @@
+:root {
+  --color-background-blue: #00539c;
+  --color-background-peach: #eea47f;
+  --color-border: #ccc;
+  --color-body: #101820;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  margin: 0;
+}
+
+/* container */
+
+.container {
+  max-width: 600px;
+  height: 100%;
+}
+
+.container--white {
+  background: #f1f1f1;
+}
+
+/* block */
+.block {
+  padding: 6rem 4rem;
+}
+
+.block--primary {
+  background: var(--color-background-blue);
+}
+
+.block--crisscross {
+  background: linear-gradient(
+    to right,
+    var(--color-background-peach) 0%,
+    var(--color-background-peach) 50%,
+    var(--color-background-blue) 50%,
+    var(--color-background-blue) 100%
+  );
+}
+
+/* button*/
+
+.btn-group {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.btn-group p {
+  font-size: 1.5rem;
+  padding-left: 0.5rem;
+  text-transform: uppercase;
+  color: #000;
+  font-weight: 600;
+}
+
+.btn {
+  font-size: 2rem;
+  border-radius: 10px;
+  padding: 1rem 2rem;
+  margin-bottom: 2rem;
+}
+
+.btn:hover {
+  background: #ccc;
+}
+
+@media screen and (min-width: 768px) {
+  .btn-group {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+}
+
+/* Form-group */
+
+.form-group {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+
+.block-form {
+  height: auto;
+  min-height: 100vh;
+}
+
+.block-form .container {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  padding: 5rem 0rem;
+  border-radius: 5px;
+}
+
+.block-form__header__heading {
+  font-size: 5rem;
+}
+
+.pass-prompt {
+  color: #101820;
+  font-weight: 500;
+  font-size: 1.5rem;
+  margin: 0 0 2rem 1rem;
+  text-decoration: none;
+  white-space: nowrap;
+  width: 0;
+}
+
+.pass-prompt:hover {
+  color: #273645;
+}
+
+@media screen and (max-width: 768px) {
+  .mobile-hidden {
+    display: none;
+  }
+}
+
+/* input */
+.input {
+  width: 100%;
+  font-size: 2rem;
+  padding: 1.5rem 3.5rem;
+  margin-bottom: 2rem;
+  outline: 0;
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+}
+
+.input::placeholder {
+  font-size: 2rem;
+}
+
+.input:hover {
+  border: 2px solid var(--color-border);
+  box-shadow: 0 0 0 5px var(--color-border);
+}
+
+.input-label {
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 1rem;
+  color: #000;
+}
+
+@media screen and (min-width: 768px) {
+  .input::placeholder {
+    font-size: 2rem;
+  }
+}

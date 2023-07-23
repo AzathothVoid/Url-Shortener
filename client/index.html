@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="Style/style.css" />
+    <title>URL Shortener</title>
+  </head>
+  <body>
+    <div class="block block--crisscross block-form">
+      <div class="container container--white">
+        <header class="block-form__header">
+          <h1 class="block-form__header__heading">Login</h1>
+        </header>
+        <form
+          action="http://127.0.0.1:3000/home"
+          method="POST"
+          class="form-group"
+        >
+          <label class="input-label" for="input-label-1">Email Address</label>
+          <input
+            id="input-label-1"
+            class="input"
+            type="email"
+            minlength="5"
+            maxlength="255"
+            placeholder="Email Address"
+          />
+          <label class="input-label" for="input-label-2">Password</label>
+          <input
+            id="input-label-2"
+            class="input"
+            type="password"
+            minlength="7"
+            maxlength="255"
+            placeholder="Password"
+          />
+          <a class="pass-prompt" href="#">Forgot your password?</a>
+          <div class="btn-group">
+            <button id="btn-1" class="btn btn--peach">Sign in</button>
+            <p class="mobile-hidden">OR</p>
+            <button id="btn-2" class="btn btn--peach">Sign up</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>
