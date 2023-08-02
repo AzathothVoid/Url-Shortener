@@ -3,13 +3,9 @@ require("dotenv").config();
 
 const app = express();
 
+routes = require("./routes");
+
 const port = process.env.PORT || 8080;
-
-
-
-
-
-
 
 
 
