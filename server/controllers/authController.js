@@ -19,6 +19,9 @@ class AuthController {
 
     const token = auth.createToken();
 
+    console.log("DONE");
+    console.log("Token: " + token);
+
     res.json({ token });
   }
 

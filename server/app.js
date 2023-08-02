@@ -7,9 +7,7 @@ routes = require("./routes");
 
 const port = process.env.PORT || 8080;
 
-
-
-
+app.use(routes);
 
 const listener = app
   .listen(port, (res) => {
