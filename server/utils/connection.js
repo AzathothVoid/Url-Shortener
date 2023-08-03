@@ -7,6 +7,7 @@ class Connection {
       const res = await mongoClient.connect(process.env.DB_URL, {
         useNewUrlParser: true,
         useUnifiedTopology: true,
+        dbName: process.env.DB,
       });
 
       if (res) {

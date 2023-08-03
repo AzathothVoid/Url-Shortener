@@ -6,7 +6,7 @@ const port = process.env.PORT || 8080;
 const app = express();
 
 //import route
-routes = require("./routes");
+routes = require("./routes/index.js");
 
 //defining default middlewares
 app.use(express.urlencoded({ extended: true }));

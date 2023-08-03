@@ -2,10 +2,10 @@ const userModel = require("../../models/User");
 const bcryptUtil = require("../../utils/bcrypt");
 const auth = require("../../utils/auth");
 const Joi = require("../../utils/validators/userSchema");
-const RegisterUser = require("../../services/auth/registerService");
+const RegisterUser = require("../../services/auth/registerService.js");
 
 class AuthController {
-  static async login(req, res) {
+  static async login(req, res, next) {
     const { username, password } = req.body;
 
     const user = await userModel.findOne({ username: username });
@@ -29,6 +29,8 @@ class AuthController {
   static async signup(req, res, next) {
     const { username, password, email } = req.body;
 
+    console.log("Enter");
+
     const user = {
       username: username,
       email: email,
@@ -44,8 +46,9 @@ class AuthController {
       return res.status(400);
     }
 
+    console.log("Schema validates");
     try {
-      const newUser = await RegisterUser(user, userModel);
+      const newUser = await RegisterUser(req, userModel);
 
       res.json({ message: "User Registration Successful" });
     } catch (error) {

@@ -4,15 +4,9 @@ class Bcrypt {
   static async hashValue(data) {
     if (typeof data != "string") return null;
 
-    bcrypt
-      .hash(data, this.#randomizer(12, 8))
-      .then((hash) => {
-        return hash;
-      })
-      .catch((err) => {
-        console.error("Error Hashing value\n" + err);
-        return null;
-      });
+    const salt = await bcrypt.genSalt(this.#randomizer(12, 8));
+    const hash = await bcrypt.hash(data, salt);
+    return hash;
   }
 
   static async compareHash(hash, value) {
