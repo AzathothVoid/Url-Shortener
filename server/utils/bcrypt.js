@@ -11,6 +11,7 @@ class Bcrypt {
       })
       .catch((err) => {
         console.error("Error Hashing value\n" + err);
+        return null;
       });
   }
 
@@ -22,6 +23,7 @@ class Bcrypt {
       })
       .catch((err) => {
         console.error("Error comparing hashed value\n" + err);
+        return null;
       });
   }
 

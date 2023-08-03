@@ -10,27 +10,40 @@
     <div class="block block--crisscross block-form">
       <div class="container container--white">
         <header class="block-form__header">
-          <h1 class="block-form__header__heading">Login</h1>
+          <h1 class="block-form__header__heading">Signup</h1>
         </header>
         <form
-          action="http://127.0.0.1:8080/Auth/login"
+          action="http://127.0.0.1:8080/api/Auth/signup"
           method="POST"
           class="form-group"
         >
-          <label class="input-label" for="input-label-1">Email Address</label>
+          <label class="input-label" for="input-label-1">Username</label>
           <input
             id="input-label-1"
             class="input"
+            name="username"
+            type="text"
+            minlength="5"
+            maxlength="255"
+            placeholder="Email Address"
+          />
+
+          <label class="input-label" for="input-label-2">Email Address</label>
+          <input
+            id="input-label-2"
+            class="input"
+            name="email"
             type="email"
             minlength="5"
             maxlength="255"
             placeholder="Email Address"
           />
-          <label class="input-label" for="input-label-2">Password</label>
+          <label class="input-label" for="input-label-3">Password</label>
           <input
-            id="input-label-2"
+            id="input-label-3"
             class="input"
             type="password"
+            name="password"
             minlength="7"
             maxlength="255"
             placeholder="Password"
@@ -39,7 +52,9 @@
           <div class="btn-group">
             <button id="btn-1" class="btn btn--peach">Sign in</button>
             <p class="mobile-hidden">OR</p>
-            <button id="btn-2" class="btn btn--peach">Sign up</button>
+            <button type="submit" id="btn-2" class="btn btn--peach">
+              Sign up
+            </button>
           </div>
         </form>
       </div>

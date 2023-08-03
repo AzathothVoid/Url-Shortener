@@ -1,13 +1,14 @@
-const User = require("../models/User");
-const bcryptUtil = require("../utils/bcrypt");
-const auth = require("../utils/auth");
-const Joi = require("../utils/validators/userSchema");
+const userModel = require("../../models/User");
+const bcryptUtil = require("../../utils/bcrypt");
+const auth = require("../../utils/auth");
+const Joi = require("../../utils/validators/userSchema");
+const RegisterUser = require("../../services/auth/registerService");
 
 class AuthController {
   static async login(req, res) {
     const { username, password } = req.body;
 
-    const user = await User.findOne({ username: username });
+    const user = await userModel.findOne({ username: username });
 
     if (!user) {
       return res.status(401).json({ error: "Invalid Credentials" });
@@ -25,7 +26,7 @@ class AuthController {
     res.json({ token });
   }
 
-  static async signup(req, res) {
+  static async signup(req, res, next) {
     const { username, password, email } = req.body;
 
     const user = {
@@ -39,9 +40,16 @@ class AuthController {
     const { error, value } = userSchema.validate(user);
 
     if (error) {
-      return res.status(400).error(error);
-    } else {
-      console.log("Data is verified");
+      console.log(error);
+      return res.status(400);
+    }
+
+    try {
+      const newUser = await RegisterUser(user, userModel);
+
+      res.json({ message: "User Registration Successful" });
+    } catch (error) {
+      next(error);
     }
   }
 }
